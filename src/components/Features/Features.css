@@ -1,0 +1,122 @@
+.features {
+	padding: 100px 20px;
+}
+
+.features-title-container {
+	text-align: center;
+}
+
+.features-title-container .tagline {
+	padding: 0.25rem 0.75rem;
+	border: 2px solid color-mix(in oklab, #303438 80%, transparent);
+	border-radius: 999px;
+	color: rgb(192, 193, 194);
+	font-size: var(--text-sm);
+	background-color: color-mix(in oklab, #24282c 20%, transparent);
+	user-select: none;
+}
+
+.features-title-container p {
+	font-size: 16px;
+	color: rgba(255, 255, 255, 0.6);
+	margin-top: 20px;
+	max-width: 600px;
+	margin-left: auto;
+	margin-right: auto;
+	font-weight: 600;
+}
+
+/* ===== GRID ===== */
+.feature-grid {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 80px 20px;
+
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 20px;
+}
+
+/* ===== CARD ===== */
+.feature-card {
+	position: relative;
+
+	padding: 24px;
+	border-radius: 18px;
+
+	background: rgba(255, 255, 255, 0.03);
+	border: 1px solid rgba(255, 255, 255, 0.08);
+
+	backdrop-filter: blur(12px);
+
+	transition: all 0.3s ease;
+	overflow: hidden;
+}
+
+/* Hover effect */
+.feature-card:hover {
+	transform: translateY(-5px);
+	background: rgba(255, 255, 255, 0.06);
+	box-shadow: 0 0 20px rgba(99, 102, 241, 0.15);
+}
+
+/* ===== TOP ROW (ICON + LABEL) ===== */
+.feature-card-title {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 14px;
+}
+
+/* Label (top right) */
+.feature-card-title h3 {
+	font-size: 12px;
+	font-weight: 500;
+	color: rgba(255, 255, 255, 0.5);
+}
+
+/* ===== TITLE ===== */
+.feature-card h1 {
+	font-size: 20px;
+	font-weight: 600;
+	margin-bottom: 10px;
+}
+
+/* ===== DESCRIPTION ===== */
+.feature-card p {
+	font-size: 14px;
+	line-height: 1.5;
+	color: rgba(255, 255, 255, 0.6);
+}
+
+/* ===== SUBTLE BACKGROUND ICON (OPTIONAL PREMIUM EFFECT) ===== */
+.feature-card::after {
+	content: "";
+	position: absolute;
+	right: -20px;
+	bottom: -20px;
+	width: 120px;
+	height: 120px;
+
+	background: radial-gradient(
+		circle,
+		rgba(99, 102, 241, 0.15),
+		transparent 70%
+	);
+
+	opacity: 0.4;
+	pointer-events: none;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+	.feature-grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+@media (max-width: 600px) {
+	.feature-grid {
+		grid-template-columns: 1fr;
+	}
+}

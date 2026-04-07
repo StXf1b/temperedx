@@ -1,0 +1,46 @@
+.hero-content {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	text-align: center;
+}
+
+.discord-hero {
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+	padding: 0.25rem 0.75rem;
+	border: 2px solid color-mix(in oklab, #303438 80%, transparent);
+	border-radius: 999px;
+	color: #ffffff;
+	font-size: var(--text-sm);
+	background-color: color-mix(in oklab, #24282c 20%, transparent);
+	cursor: pointer;
+	transition:
+		background-color 0.2s ease,
+		border-color 0.2s ease;
+	user-select: none;
+}
+
+.discord-hero:hover {
+	background-color: color-mix(in oklab, #24282c 40%, transparent);
+	border-color: color-mix(in oklab, #303438 100%, transparent);
+}
+
+.discord-hero svg {
+	width: 18px;
+	height: 18px;
+	color: #7289da;
+}
+
+.text-highlight {
+	color: #7289da;
+}
+
+.hero-description {
+	padding: 0px 40px;
+	color: var(--muted);
+}
