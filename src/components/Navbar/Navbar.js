@@ -7,7 +7,7 @@ import Link from "next/link";
 export default function Navbar() {
 	const [open, setOpen] = useState(false);
 	const [atTop, setAtTop] = useState(true);
-	const [isLoggedIn, setIsLoggedIn] = useState(true); // Placeholder for auth state
+	const [isLoggedIn, setIsLoggedIn] = useState(false); // Placeholder for auth state
 
 	useEffect(() => {
 		const handleScroll = () => {

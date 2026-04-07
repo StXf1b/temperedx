@@ -16,7 +16,7 @@ const Cta = () => {
 					Get a fully tailored website built specifically for your server and
 					community.
 				</p>
-				<div className="cta-items">
+				<div className="cta-items flex justify-center gap-10 mt-10">
 					<div className="cta-item">
 						<span>
 							<Paintbrush />
