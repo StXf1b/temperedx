@@ -1,0 +1,300 @@
+.signup-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+	margin-top: 50px;
+}
+
+/* CARD */
+.signup-wrapper {
+	background: rgba(15, 23, 42, 0.65);
+	border-radius: 18px;
+	padding: 32px 28px;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 22px;
+
+	width: 100%;
+	max-width: 440px;
+
+	border: 1px solid rgba(255, 255, 255, 0.08);
+	backdrop-filter: blur(16px);
+
+	box-shadow:
+		0 10px 40px rgba(0, 0, 0, 0.4),
+		inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+/* HEADER */
+.signup-header {
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.signup-header img {
+	width: 150px;
+	margin-bottom: 10px;
+}
+
+.signup-header h1 {
+	font-size: 26px;
+	color: #ffffff;
+	font-weight: 600;
+}
+
+.signup-header p {
+	font-size: 13px;
+	color: #94a3b8;
+}
+
+/* INPUTS */
+.signup-input-container {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+.signup-input-container p {
+	font-size: 13px;
+	color: #9ca3af;
+	margin-bottom: 6px;
+}
+
+.signup-input {
+	display: flex;
+	align-items: center;
+	padding: 12px;
+	border-radius: 10px;
+	gap: 10px;
+
+	background: rgba(255, 255, 255, 0.03);
+	border: 1px solid rgba(255, 255, 255, 0.08);
+
+	transition: all 0.2s ease;
+}
+
+.signup-input span {
+	color: #6b7280;
+}
+
+.signup-input input {
+	background: none;
+	border: none;
+	color: #ffffff;
+	width: 100%;
+	font-size: 14px;
+}
+
+.signup-input input::placeholder {
+	color: #6b7280;
+}
+
+.signup-input input:focus {
+	outline: none;
+}
+
+/* FOCUS */
+.signup-input:focus-within {
+	border-color: rgba(59, 130, 246, 0.6);
+	background: rgba(59, 130, 246, 0.05);
+	box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+}
+
+.signup-input:focus-within span {
+	color: #60a5fa;
+}
+
+/* BUTTON */
+.signup-button {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+
+.signup-button button {
+	width: 100%;
+	margin-top: 18px;
+
+	padding: 12px;
+	border-radius: 10px;
+	border: none;
+
+	font-size: 15px;
+	font-weight: 600;
+	color: white;
+
+	cursor: pointer;
+
+	background: linear-gradient(135deg, #3b82f6, #6366f1);
+	box-shadow: 0 6px 20px rgba(59, 130, 246, 0.35);
+
+	transition: all 0.2s ease;
+}
+
+.signup-button button:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 10px 30px rgba(59, 130, 246, 0.45);
+}
+
+/* FOOTER */
+.signup-footer {
+	width: 100%;
+	text-align: center;
+}
+
+.signup-footer span {
+	font-size: 13px;
+	color: #64748b;
+}
+
+/* SOCIAL */
+.social-login {
+	display: flex;
+	gap: 14px;
+	margin-top: 18px;
+	justify-content: center;
+}
+
+.social-button {
+	width: 44px;
+	height: 44px;
+
+	border-radius: 10px;
+	background: rgba(255, 255, 255, 0.03);
+	border: 1px solid rgba(255, 255, 255, 0.08);
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	cursor: pointer;
+	transition: all 0.2s ease;
+}
+
+.social-button:hover {
+	transform: translateY(-3px);
+	background: rgba(255, 255, 255, 0.06);
+}
+
+/* BRAND COLORS */
+.discord-button {
+	color: #5865f2;
+}
+
+.google-button {
+	color: #ea4335;
+}
+
+/* LOGIN REDIRECT */
+.login-redirect {
+	font-size: 13px;
+	color: #94a3b8;
+	margin-top: 18px;
+}
+
+.login-link {
+	color: #60a5fa;
+	text-decoration: none;
+	font-weight: 500;
+}
+
+.login-link:hover {
+	text-decoration: underline;
+}
+
+/* MOBILE */
+@media (max-width: 480px) {
+	.signup-wrapper {
+		padding: 24px 18px;
+	}
+}
+
+/* CONTAINER */
+.terms-container {
+	width: 100%;
+	margin-top: 16px;
+}
+
+/* LABEL WRAPPER */
+.terms-checkbox {
+	display: flex;
+	align-items: flex-start;
+	gap: 10px;
+	cursor: pointer;
+	user-select: none;
+}
+
+/* HIDE DEFAULT */
+.terms-checkbox input {
+	display: none;
+}
+
+/* CUSTOM BOX */
+.checkmark {
+	width: 18px;
+	height: 18px;
+	min-width: 18px;
+
+	border-radius: 6px;
+	border: 1px solid rgba(255, 255, 255, 0.15);
+	background: rgba(255, 255, 255, 0.03);
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	transition: all 0.2s ease;
+	position: relative;
+}
+
+/* CHECK ICON */
+.checkmark::after {
+	content: "";
+	width: 10px;
+	height: 10px;
+	border-radius: 3px;
+	background: white;
+	transform: scale(0);
+	transition: transform 0.2s ease;
+}
+
+/* CHECKED STATE */
+.terms-checkbox input:checked + .checkmark {
+	background: linear-gradient(135deg, #3b82f6, #6366f1);
+	border-color: transparent;
+	box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+}
+
+.terms-checkbox input:checked + .checkmark::after {
+	transform: scale(1);
+}
+
+/* TEXT */
+.terms-text {
+	font-size: 13px;
+	color: #94a3b8;
+	line-height: 1.4;
+}
+
+/* LINKS */
+.terms-link {
+	color: #60a5fa;
+	text-decoration: none;
+	font-weight: 500;
+	transition: color 0.2s ease;
+}
+
+.terms-link:hover {
+	color: #93c5fd;
+	text-decoration: underline;
+}
+
+/* HOVER EFFECT */
+.terms-checkbox:hover .checkmark {
+	border-color: rgba(255, 255, 255, 0.3);
+}

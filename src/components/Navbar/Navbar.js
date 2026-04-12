@@ -1,13 +1,35 @@
 "use client";
-
 import { useState, useEffect } from "react";
-import { Menu, X, LogIn } from "lucide-react";
+import { Menu, X, LogIn, Monitor } from "lucide-react";
+import { UserButton, useUser } from "@clerk/nextjs";
+import { useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 
 export default function Navbar() {
 	const [open, setOpen] = useState(false);
 	const [atTop, setAtTop] = useState(true);
-	const [isLoggedIn, setIsLoggedIn] = useState(false); // Placeholder for auth state
+	const pathname = usePathname();
+	const router = useRouter();
+	const { isSignedIn, user, isLoaded } = useUser();
+	// if user exists but doesn't have username, send to onboarding
+	useEffect(() => {
+		console.log("Navbar mounted");
+	}, []);
+
+	useEffect(() => {
+		if (
+			isLoaded &&
+			isSignedIn &&
+			!user?.username &&
+			pathname !== "/onboarding"
+		) {
+			router.replace("/onboarding");
+		}
+	}, [isLoaded, isSignedIn, user, router, pathname]);
+	useEffect(() => {
+		setOpen(false);
+	}, [pathname]);
 
 	useEffect(() => {
 		const handleScroll = () => {
@@ -42,25 +64,31 @@ export default function Navbar() {
 				{/* CENTER LINKS */}
 				<div className="hidden md:flex items-center gap-5 text-md font-medium text-white/80">
 					<Link
-						href="#"
+						href="/"
 						className="hover:text-white hover:bg-[#454545]/21 rounded-lg px-3 py-2 transition"
 					>
 						Home
 					</Link>
 					<Link
-						href="#"
+						href="/about"
 						className="hover:text-white hover:bg-[#454545]/21 rounded-lg px-3 py-2 transition"
 					>
 						About
 					</Link>
 					<Link
-						href="#"
+						href="/products"
 						className="hover:text-white hover:bg-[#454545]/21 rounded-lg px-3 py-2 transition"
 					>
 						Products
 					</Link>
 					<Link
-						href="#"
+						href="/documentation"
+						className="hover:text-white hover:bg-[#454545]/21 rounded-lg px-3 py-2 transition"
+					>
+						Documentation
+					</Link>
+					<Link
+						href="/contact"
 						className="hover:text-white hover:bg-[#454545]/21 rounded-lg px-4 py-2 transition"
 					>
 						Contact
@@ -68,24 +96,43 @@ export default function Navbar() {
 				</div>
 
 				{/* RIGHT BUTTON */}
-				{isLoggedIn ? (
-					<div className="flex items-center justify-center">
-						<div>
-							<p className="text-white/80 mr-3">StXfTb</p>
+				{isLoaded ? (
+					isSignedIn ? (
+						<div className="flex items-center justify-center align-middle gap-3">
+							<p className="text-white/80 text-sm">
+								{user?.username ? user.username.toUpperCase() : "USER"}
+							</p>
+
+							<UserButton
+								appearance={{
+									elements: {
+										avatarBox: {
+											width: "40px",
+											height: "40px",
+										},
+									},
+								}}
+							>
+								<UserButton.MenuItems>
+									<UserButton.Link
+										label="Dashboard"
+										labelIcon={<Monitor size={15} />}
+										href="/dashboard"
+									/>
+								</UserButton.MenuItems>
+							</UserButton>
 						</div>
-						<div>
-							<img
-								src="/assets/avatar.png"
-								alt="User Avatar"
-								className="h-10 w-10 rounded-full cursor-pointer"
-							/>
-						</div>
-					</div>
+					) : (
+						<Link
+							href="/login"
+							className="flex items-center gap-2 rounded-xl bg-white/10 px-4 py-2 text-sm font-medium backdrop-blur-md hover:bg-white/20 transition"
+						>
+							<LogIn size={16} />
+							Login
+						</Link>
+					)
 				) : (
-					<button className="flex cursor-pointer items-center gap-2 rounded-xl bg-white/10 px-4 py-2 text-sm font-medium backdrop-blur-md hover:bg-white/20 transition">
-						<LogIn size={16} />
-						Login
-					</button>
+					<div className="w-10 h-10 rounded-full bg-white/10 animate-pulse" />
 				)}
 			</nav>
 
@@ -109,28 +156,35 @@ export default function Navbar() {
 					{/* LINKS */}
 					<div className="flex flex-col text-lg">
 						<Link
-							href="#"
+							href="/"
 							className="hover:text-white hover:bg-[#454545]/21 rounded-lg px-2 py-2 transition"
 							onClick={() => setOpen(false)}
 						>
 							Home
 						</Link>
 						<Link
-							href="#"
+							href="/about"
 							className="hover:text-white hover:bg-[#454545]/21 rounded-lg px-2 py-2 transition"
 							onClick={() => setOpen(false)}
 						>
 							About
 						</Link>
 						<Link
-							href="#"
+							href="/products"
 							className="hover:text-white hover:bg-[#454545]/21 rounded-lg px-2 py-2 transition"
 							onClick={() => setOpen(false)}
 						>
 							Products
 						</Link>
 						<Link
-							href="#"
+							href="/documentation"
+							className="hover:text-white hover:bg-[#454545]/21 rounded-lg px-3 py-2 transition"
+							onClick={() => setOpen(false)}
+						>
+							Documentation
+						</Link>
+						<Link
+							href="/contact"
 							className="hover:text-white hover:bg-[#454545]/21 rounded-lg px-2 py-2 transition"
 							onClick={() => setOpen(false)}
 						>

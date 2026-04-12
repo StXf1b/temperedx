@@ -1,0 +1,75 @@
+/* ===== WRAPPER ===== */
+.changelog {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+
+/* ===== ENTRY ===== */
+.changelog-entry {
+	padding: 18px;
+	border-radius: 14px;
+
+	background: rgba(255, 255, 255, 0.02);
+	border: 1px solid rgba(255, 255, 255, 0.08);
+
+	transition: 0.3s;
+}
+
+/* ===== HEADER ===== */
+.changelog-header {
+	margin-bottom: 12px;
+}
+
+.version {
+	font-size: 0.95rem;
+	font-weight: 600;
+	color: #cfd6ff;
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.date {
+	font-size: 0.75rem;
+	color: var(--muted);
+}
+
+/* ===== LIST ===== */
+.changelog-list {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+/* ===== ITEMS ===== */
+.change-item {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+
+	font-size: 0.85rem;
+	color: var(--muted);
+}
+
+/* ===== ICON ===== */
+.icon {
+	display: flex;
+	align-items: center;
+}
+
+/* ===== TYPES ===== */
+.change-item.feature svg {
+	color: #7c8fd8;
+}
+
+.change-item.improvement svg {
+	color: #a5b4fc;
+}
+
+.change-item.fix svg {
+	color: #6ee7b7;
+}

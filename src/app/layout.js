@@ -1,7 +1,9 @@
 import { Inter, JetBrains_Mono } from "next/font/google";
 import { clashDisplay } from "@/lib/fonts";
 import "./globals.css";
-
+import Navbar from "@/components/Navbar/Navbar";
+import Footer from "@/components/Footer/Footer";
+import ClerkProviderWrapper from "@/components/providers/ClerkProviderWrapper";
 const inter = Inter({
 	variable: "--font-sans",
 	subsets: ["latin"],
@@ -25,7 +27,11 @@ export default function RootLayout({ children }) {
 			className={`${inter.variable} ${jetbrainsMono.variable} ${clashDisplay.variable} h-full antialiased`}
 		>
 			<body className="min-h-full bg-[var(--bg)] text-[var(--text)] font-sans">
-				{children}
+				<ClerkProviderWrapper>
+					<Navbar />
+					{children}
+					<Footer />
+				</ClerkProviderWrapper>
 			</body>
 		</html>
 	);

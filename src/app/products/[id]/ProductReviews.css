@@ -1,0 +1,121 @@
+/* ===== WRAPPER ===== */
+.reviews {
+	display: flex;
+	flex-direction: column;
+	gap: 30px;
+}
+
+/* ===== FORM ===== */
+.review-form {
+	padding: 20px;
+	border-radius: 14px;
+
+	background: rgba(255, 255, 255, 0.02);
+	border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.review-form h2 {
+	font-size: 1rem;
+	margin-bottom: 10px;
+}
+
+/* Stars */
+.stars-input {
+	display: flex;
+	gap: 6px;
+	margin-bottom: 12px;
+}
+
+.stars-input svg {
+	cursor: pointer;
+	color: rgba(255, 255, 255, 0.3);
+	transition: 0.2s;
+}
+
+.stars-input svg.active {
+	color: #7c8fd8;
+}
+
+/* Textarea */
+.review-form textarea {
+	width: 100%;
+	height: 80px;
+	resize: none;
+
+	background: rgba(255, 255, 255, 0.03);
+	border: 1px solid rgba(255, 255, 255, 0.1);
+	border-radius: 10px;
+
+	padding: 10px;
+	color: white;
+	font-size: 0.85rem;
+
+	margin-bottom: 10px;
+}
+
+/* Button */
+.submit-review {
+	background: linear-gradient(135deg, #5b6eae, #7c8fd8);
+	border-radius: 10px;
+	padding: 10px;
+	width: 100%;
+	color: white;
+	font-weight: 500;
+
+	transition: 0.2s;
+}
+
+.submit-review:hover {
+	transform: translateY(-1px);
+}
+
+/* ===== LIST ===== */
+.reviews-list {
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+}
+
+/* Card */
+.review-card {
+	padding: 16px;
+	border-radius: 12px;
+
+	background: rgba(255, 255, 255, 0.02);
+	border: 1px solid rgba(255, 255, 255, 0.08);
+
+	transition: 0.25s;
+}
+
+.review-card:hover {
+	border-color: rgba(91, 110, 174, 0.4);
+	box-shadow: 0 0 15px rgba(91, 110, 174, 0.15);
+}
+
+/* Header */
+.review-header {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 6px;
+}
+
+.user {
+	font-weight: 500;
+}
+
+.stars svg {
+	color: #7c8fd8;
+}
+
+/* Text */
+.review-text {
+	font-size: 0.85rem;
+	color: var(--muted);
+	margin-bottom: 6px;
+}
+
+/* Date */
+.review-date {
+	font-size: 0.7rem;
+	color: var(--muted);
+}

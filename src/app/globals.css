@@ -27,12 +27,25 @@ a:hover {
 	color: var(--primary);
 }
 
-button,
 input,
 select,
 textarea {
 	font: inherit;
 	color: inherit;
+}
+
+/* Fix Chrome autofill white background */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+	-webkit-box-shadow: 0 0 0 1000px rgba(15, 23, 42, 0.9) inset !important;
+	box-shadow: 0 0 0 1000px rgba(15, 23, 42, 0.9) inset !important;
+
+	-webkit-text-fill-color: #ffffff !important;
+	caret-color: #ffffff;
+
+	transition: background-color 5000s ease-in-out 0s;
 }
 
 /* ================= SELECTION ================= */
@@ -197,4 +210,25 @@ textarea {
 	content: "->";
 	margin-left: 8px;
 	font-family: Inter, sans-serif;
+}
+
+.error-message {
+	color: var(--danger);
+	font-size: var(--text-sm);
+	margin-top: 8px;
+}
+
+.loader {
+	border: 4px solid rgba(255, 255, 255, 0.1);
+	border-top: 4px solid var(--primary);
+	border-radius: 50%;
+	width: 40px;
+	height: 40px;
+	animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+	to {
+		transform: rotate(360deg);
+	}
 }

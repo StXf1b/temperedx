@@ -1,0 +1,151 @@
+.verify-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+	padding: 20px;
+}
+
+/* CARD */
+.verify-wrapper {
+	background: rgba(15, 23, 42, 0.65);
+	border-radius: 18px;
+	padding: 32px 28px;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 22px;
+
+	width: 100%;
+	max-width: 420px;
+
+	border: 1px solid rgba(255, 255, 255, 0.08);
+	backdrop-filter: blur(16px);
+
+	box-shadow:
+		0 10px 40px rgba(0, 0, 0, 0.4),
+		inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+/* HEADER */
+.verify-header {
+	text-align: center;
+}
+
+.verify-header img {
+	width: 140px;
+	margin-bottom: 10px;
+}
+
+.verify-header h1 {
+	font-size: 26px;
+	color: #ffffff;
+	font-weight: 600;
+}
+
+.verify-header p {
+	font-size: 13px;
+	color: #94a3b8;
+}
+
+/* CODE INPUTS */
+.code-inputs {
+	display: flex;
+	gap: 10px;
+	justify-content: center;
+	margin-top: 10px;
+}
+
+.code-inputs input {
+	width: 44px;
+	height: 50px;
+
+	text-align: center;
+	font-size: 18px;
+	font-weight: 600;
+
+	color: white;
+	background: rgba(255, 255, 255, 0.03);
+
+	border-radius: 10px;
+	border: 1px solid rgba(255, 255, 255, 0.08);
+
+	transition: all 0.2s ease;
+}
+
+.code-inputs input:focus {
+	outline: none;
+	border-color: rgba(59, 130, 246, 0.7);
+	background: rgba(59, 130, 246, 0.05);
+	box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+}
+
+/* BUTTON */
+.verify-button {
+	width: 100%;
+	margin-top: 10px;
+
+	padding: 12px;
+	border-radius: 10px;
+	border: none;
+
+	font-size: 15px;
+	font-weight: 600;
+	color: white;
+
+	cursor: pointer;
+
+	background: linear-gradient(135deg, #3b82f6, #6366f1);
+	box-shadow: 0 6px 20px rgba(59, 130, 246, 0.35);
+
+	transition: all 0.2s ease;
+}
+
+.verify-button:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 10px 30px rgba(59, 130, 246, 0.45);
+}
+
+/* RESEND */
+.resend-text {
+	font-size: 13px;
+	color: #94a3b8;
+	margin-top: 6px;
+}
+
+.resend-button {
+	background: none;
+	border: none;
+	color: #60a5fa;
+	cursor: pointer;
+	font-weight: 500;
+}
+
+.resend-button:hover {
+	text-decoration: underline;
+}
+
+/* BACK LINK */
+.back-link {
+	font-size: 13px;
+	color: #64748b;
+	text-decoration: none;
+	margin-top: 10px;
+}
+
+.back-link:hover {
+	color: #94a3b8;
+}
+
+/* MOBILE */
+@media (max-width: 480px) {
+	.verify-wrapper {
+		padding: 24px 18px;
+	}
+
+	.code-inputs input {
+		width: 38px;
+		height: 44px;
+	}
+}
