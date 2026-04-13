@@ -41,25 +41,20 @@ export const products = [
 					"Really good overall, just needed a bit of tweaking for my setup.",
 				created_at: "2026-03-21",
 			},
+			{
+				id: 4,
+				user_name: "Ethan",
+				rating: 4,
+				comment:
+					"Really good overall, just needed a bit of tweaking for my setup.",
+				created_at: "2026-03-21",
+			},
 		],
 
 		overview_content: [
 			{
 				alt: "Rust website template preview",
-				src: "/assets/rust-photo.png",
-			},
-			{
-				alt: "Rust website template preview",
-				src: "/assets/product2.png",
-			},
-			{
-				alt: "split",
-				alt: "Optimised for Rust servers",
-				src: "/assets/product2.png",
-			},
-			{
-				alt: "split",
-				src: "/assets/product2.png",
+				src: "/assets/rust-photo1.webp",
 			},
 		],
 
@@ -68,7 +63,16 @@ export const products = [
 				version: "1.3.2",
 				date: "2026-04-02",
 				changes: [
+					{ type: "feature", text: "Added new store layout options" },
+					{ type: "feature", text: "Added Tebex integration support" },
+					{ type: "feature", text: "Added Tebex integration support" },
+					{ type: "feature", text: "Added Tebex integration support" },
+					{ type: "feature", text: "Added Tebex integration support" },
 					{ type: "improvement", text: "Improved mobile navigation layout" },
+					{ type: "improvement", text: "Improved mobile navigation layout" },
+					{ type: "improvement", text: "Improved mobile navigation layout" },
+					{ type: "improvement", text: "Improved mobile navigation layout" },
+					{ type: "fix", text: "Fixed checkout button alignment issue" },
 					{ type: "fix", text: "Fixed checkout button alignment issue" },
 				],
 			},

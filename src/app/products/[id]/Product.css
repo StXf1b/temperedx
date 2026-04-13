@@ -46,6 +46,7 @@
 
 	padding: 24px;
 	backdrop-filter: blur(10px);
+	margin-bottom: 50px;
 }
 
 /* ===== NAV TABS ===== */
@@ -90,8 +91,8 @@
 	display: flex;
 	flex-direction: column;
 	gap: 16px;
-	position: sticky;
 	top: 100px;
+	margin-bottom: 40px;
 }
 
 /* ===== BUY CARD ===== */
@@ -325,4 +326,37 @@
 .second-row-cards {
 	display: flex;
 	gap: 12px;
+}
+.product-header-btns {
+	display: flex;
+	gap: 12px;
+}
+
+.product-header-btns button {
+	border: 1px solid rgba(255, 255, 255, 0.08);
+	background: rgba(255, 255, 255, 0.02);
+	color: var(--muted);
+	padding: 8px 12px;
+	border-radius: 8px;
+	font-size: 0.85rem;
+	transition: all 0.25s ease;
+	cursor: pointer;
+}
+.product-header-btns button:hover {
+	border-color: rgba(255, 255, 255, 0.15);
+	color: white;
+	box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+.heart-clicked {
+	color: #ff6b81;
+	border-color: rgba(255, 107, 129, 0.4) !important;
+}
+.heart-clicked svg {
+	color: #ff6b81;
+}
+
+.heart-clicked:hover {
+	border-color: rgba(255, 107, 129, 0.6) !important;
+	box-shadow: 0 0 10px rgba(255, 107, 129, 0.6);
 }

@@ -3,7 +3,15 @@ import "./Product.css";
 import React from "react";
 import { products } from "@/lib/products";
 import { useState } from "react";
-import { Check, Layout, Clock, Star, ExternalLink } from "lucide-react";
+import {
+	Check,
+	Layout,
+	Clock,
+	Star,
+	ExternalLink,
+	Share2,
+	Heart,
+} from "lucide-react";
 import ProductOverview from "./ProductOverview";
 import ProductChangelog from "./ProductChangelog";
 import ProductReviews from "./ProductReviews";
@@ -12,16 +20,36 @@ import Link from "next/link";
 const Page = ({ params }) => {
 	const { id } = React.use(params);
 	const [activeTab, setActiveTab] = useState("overview");
+	const [selection, setSelection] = useState("standard-eula");
+	const [supportSelection, setSupportSelection] = useState("standard-support");
+
+	let extras = 0;
+	if (selection === "extended-eula") {
+		extras += 10;
+	}
+	if (supportSelection === "enhanced-support") {
+		extras += 20;
+	}
 
 	const product = products.find((p) => p.id === parseInt(id));
 
 	return (
 		<div className="product-page">
-			<div className="product-page-header">
-				<h1>
-					{product.title} <span>v{product.version}</span>
-				</h1>
-				<p>{product.description}</p>
+			<div className="flex justify-between items-center align-middle">
+				<div className="product-page-header">
+					<h1>
+						{product.title} <span>v{product.version}</span>
+					</h1>
+					<p>{product.description}</p>
+				</div>
+				<div className="product-header-btns">
+					<button className="heart-clicked">
+						<Heart />
+					</button>
+					<button>
+						<Share2 />
+					</button>
+				</div>
 			</div>
 			<div className="product-content-wrapper">
 				<div className="product-details-container">
@@ -71,22 +99,41 @@ const Page = ({ params }) => {
 							<span>Buy a license now</span>
 							{product.discountedPrice ? (
 								<div className="flex gap-2 justify-center items-center align-middle">
-									<span className="original-price">€{product.price}</span>
+									<span className="original-price">
+										€{Math.round((product.price + extras) * 100) / 100}
+									</span>
 									<span className="discounted-price">
-										€{product.discountedPrice}
+										€
+										{Math.round((product.discountedPrice + extras) * 100) / 100}
 									</span>
 								</div>
 							) : (
-								<span className="price">€{product.price}</span>
+								<span className="price">
+									€{Math.round((product.price + extras) * 100) / 100}
+								</span>
 							)}
 						</div>
 						<h2>EULA</h2>
 						<div className="flex flex-col gap-2">
-							<div className="card-eula selected">
+							<div
+								className={
+									selection === "standard-eula"
+										? "card-eula selected"
+										: "card-eula"
+								}
+								onClick={() => setSelection("standard-eula")}
+							>
 								<h3>Standard EULA</h3>
 								<p>Use on any project you own with attribution</p>
 							</div>
-							<div className="card-eula">
+							<div
+								className={
+									selection === "extended-eula"
+										? "card-eula selected"
+										: "card-eula"
+								}
+								onClick={() => setSelection("extended-eula")}
+							>
 								<span className="flex justify-between items-center align-middle">
 									<h3>Extended EULA</h3>
 									<p>+ €10.00</p>
@@ -96,7 +143,14 @@ const Page = ({ params }) => {
 						</div>
 						<h2>Support</h2>
 						<div className="card-support-wrapper flex flex-col gap-4">
-							<div className="card-support selected">
+							<div
+								className={
+									supportSelection === "standard-support"
+										? "card-support selected"
+										: "card-support"
+								}
+								onClick={() => setSupportSelection("standard-support")}
+							>
 								<h3>Standard Support</h3>
 								<p>Includes:</p>
 								<ul>
@@ -112,7 +166,14 @@ const Page = ({ params }) => {
 									</li>
 								</ul>
 							</div>
-							<div className="card-support">
+							<div
+								className={
+									supportSelection === "enhanced-support"
+										? "card-support selected"
+										: "card-support"
+								}
+								onClick={() => setSupportSelection("enhanced-support")}
+							>
 								<span className="flex justify-between items-center align-middle">
 									<h3>Enhanced Support</h3>
 									<p>+ €20.00</p>
